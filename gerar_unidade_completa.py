@@ -70,7 +70,7 @@ def gerar_conteudo_aula(texto_transcrito, termos_vistos_global):
     - Siga ESTE TEMPLATE EXATAMENTE, sem negrito no primeiro parágrafo:
     Olá estudantes! O tema da nossa aula foi [tema] e o nosso objetivo era [objetivo principal]. Vamos relembrar o que fizemos até aqui?
         
-    * Primeiro, **frase-chave**, explicação do que foi feito com verbos conjugados na 3ª pessoa do plural, sem parênteses extras. Uma única frase curta.
+    * Primeiro, **frase-chave**, explicação do que foi feito com verbos conjugados na 1ª pessoa do plural (criamos, analisamos, etc), sem parênteses extras. Uma única frase curta.
     * Depois, **frase-chave**, continuação fluida da explicação.Uma única frase curta.
     * Em seguida, **frase-chave**, continuação fluida da explicação.Uma única frase curta.
     * Por último, **frase-chave**, fechar com a última etapa.Uma única frase curta.
