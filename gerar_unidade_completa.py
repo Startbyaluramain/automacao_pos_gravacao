@@ -1,4 +1,4 @@
-# comando para rodar no terminal: python gerar_unidade_completa.py
+#comando para rodar no terminal: python gerar_unidade_completa.py
 
 import whisper
 import google.generativeai as genai
@@ -52,36 +52,38 @@ def gerar_conteudo_aula(texto_transcrito, termos_vistos_global):
     Abaixo está a transcrição combinada de todos os vídeos referentes a UMA ÚNICA AULA.
     Sua tarefa é analisar o texto completo e gerar TRÊS seções em Markdown consolidando os temas abordados.
 
-    REGRAS PARA A SEÇÃO 1: "## O que aprendemos"
-    - Siga ESTE TEMPLATE EXATAMENTE, sem negrito no primeiro parágrafo:
-    Olá estudantes! O tema da nossa aula foi [tema] e o nosso objetivo era [objetivo principal]. Vamos relembrar o que fizemos até aqui?
     
-    * Primeiro, **frase-chave**, explicação do que foi feito com verbos conjugados na 3ª pessoa do plural, sem parênteses extras. Uma única frase curta.
-    * Depois, **frase-chave**, continuação fluida da explicação.Uma única frase curta.
-    * Em seguida, **frase-chave**, continuação fluida da explicação.Uma única frase curta.
-    * Por último, **frase-chave**, fechar com a última etapa.Uma única frase curta.
-    
-    E com isso, conseguimos [citar o objetivo da aula]! Nos vemos numa próxima, até mais!
-    - IMPORTANTE PARA A LISTA: NUNCA coloque parênteses envolvendo o negrito ou a explicação. Use vírgula após a **frase-chave** em negrito e siga com texto corrido natural (ex: `* Primeiro, **salvei as respostas nas notas**, registrando a conversa...`).
-    - Ajuste a concordância do primeiro parágrafo se necessário.
-    - O resumo deve englobar o aprendizado de toda a transcrição. Extraia exatamente 4 passos principais.
-
-    REGRAS PARA A SEÇÃO 2: "## Glossário"
-    - Identifique apenas conceitos técnicos.
-    - Crie explicações simples com analogias (tom pedagógico, direto).
-    - Evite listar nomes de variáveis, funções específicas ou jargões complexos nas explicações.
-    - ANTI-REPETIÇÃO: NÃO repita nenhum destes termos já definidos em aulas anteriores desta unidade: [{termos_proibidos_str}].
-
-    REGRAS PARA A SEÇÃO 3: "## Para saber mais"
+    REGRAS PARA A SEÇÃO 1: "## Para saber mais"
     - Escreva de 1 a 2 parágrafos com uma breve explicação conceitual/contextual aprofundando um tema relacionado ao assunto da aula.
     - Abaixo do texto, inclua de 1 a 2 links externos confiáveis em Markdown (formato [descrição](url)).
     - PROIBIDO incluir documentação de ferramentas, softwares, ambientes de desenvolvimento ou linguagens de programação (ex: sem links para docs do Python, MDN, VS Code, Git, StartLab, etc.). Foque em portais educacionais, artigos teóricos, .org/.gov ou universidades.
     - REGRA CRÍTICA DE SEGURANÇA: É TERMINANTEMENTE PROIBIDO sugerir, indicar ou linkar o Scratch (scratch.mit.edu).
 
+    REGRAS PARA A SEÇÃO 2: "## Glossário"
+    - Comece com o seguinte texto antes de apresentar os conceitos "Durante a aula, fomos apresentados a alguns conceitos novos e importantes. Para facilitar o entendimento, vamos relembrar os principais termos aprendidos?"
+    - Identifique apenas conceitos técnicos.
+    - Crie explicações simples com analogias (tom pedagógico, direto).
+    - Evite listar nomes de variáveis, funções específicas ou jargões complexos nas explicações.
+    - ANTI-REPETIÇÃO: NÃO repita nenhum destes termos já definidos em aulas anteriores desta unidade: [{termos_proibidos_str}].
+
+    REGRAS PARA A SEÇÃO 3: "## O que aprendemos"
+    - Siga ESTE TEMPLATE EXATAMENTE, sem negrito no primeiro parágrafo:
+    Olá estudantes! O tema da nossa aula foi [tema] e o nosso objetivo era [objetivo principal]. Vamos relembrar o que fizemos até aqui?
+        
+    * Primeiro, **frase-chave**, explicação do que foi feito com verbos conjugados na 3ª pessoa do plural, sem parênteses extras. Uma única frase curta.
+    * Depois, **frase-chave**, continuação fluida da explicação.Uma única frase curta.
+    * Em seguida, **frase-chave**, continuação fluida da explicação.Uma única frase curta.
+    * Por último, **frase-chave**, fechar com a última etapa.Uma única frase curta.
+        
+    E com isso, conseguimos [citar o objetivo da aula]! Nos vemos numa próxima, até mais!
+    - IMPORTANTE PARA A LISTA: NUNCA coloque parênteses envolvendo o negrito ou a explicação. Use vírgula após a **frase-chave** em negrito e siga com texto corrido natural (ex: `* Primeiro, **salvei as respostas nas notas**, registrando a conversa...`).
+    - Ajuste a concordância do primeiro parágrafo se necessário.
+    - O resumo deve englobar o aprendizado de toda a transcrição. Extraia exatamente 4 passos principais.
+
     Transcrição combinada da aula:
     {texto_transcrito}
 
-    SAÍDA: Forneça apenas o texto em Markdown, começando diretamente com "## O que aprendemos". Não inclua o título "# Aula X".
+    SAÍDA: Forneça apenas o texto em Markdown, começando diretamente com "## Para saber mais". Não inclua o título "# Aula X".
     """
 
     modelos_para_tentar = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-flash-latest", "gemini-3.5-flash-lite"]
